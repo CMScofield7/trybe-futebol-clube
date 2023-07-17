@@ -3,9 +3,8 @@ import * as chai from 'chai';
 import { App } from '../app';
 import Teams from '../database/models/TeamsModel';
 import { teamMock, teamsMock } from './mocks/team.mock';
-import chaiHttp from 'chai-http';
-import TeamsService from '../services/TeamsServices';
-import TeamsController from '../controllers/TeamsController';
+// @ts-ignore
+import chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 const { app } = new App();
