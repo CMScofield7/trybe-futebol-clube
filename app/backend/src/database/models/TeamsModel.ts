@@ -25,6 +25,7 @@ Teams.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+
 }, {
   sequelize: db,
   modelName: 'teams',
