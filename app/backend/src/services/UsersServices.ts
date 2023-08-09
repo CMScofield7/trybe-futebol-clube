@@ -5,6 +5,8 @@ import Bcrypt from '../utils/Bcrypt';
 import Jwt from '../utils/Jwt';
 
 export default class UserService {
+  private static invalidInfo = 'Invalid email or password';
+
   constructor(
     private _users = Users,
     private _bcrypt = new Bcrypt(),
@@ -24,13 +26,13 @@ export default class UserService {
 
   public async login(email: string, password: string): Promise<ServiceResponse<{ token: string }>> {
     const user = await this.findUserByEmail(email);
-    if (!user) return { status: 'UNAUTHORIZED', data: { message: 'Invalid email or password' } };
+    if (!user) return { status: 'UNAUTHORIZED', data: { message: UserService.invalidInfo } };
 
     const validPassword = await this._bcrypt.compare(password, user.password);
     if (!validPassword) {
       return {
         status: 'UNAUTHORIZED',
-        data: { message: 'Invalid email or password' },
+        data: { message: UserService.invalidInfo },
       };
     }
 
@@ -43,5 +45,13 @@ export default class UserService {
 
     const token = this._jwt.sign(payload);
     return { status: 'SUCCESS', data: { token } };
+  }
+
+  public async getUserByRole(email: string): Promise<ServiceResponse<{ role: string }>> {
+    const user = await this.findUserByEmail(email);
+
+    if (!user) return { status: 'UNAUTHORIZED', data: { message: UserService.invalidInfo } };
+
+    return { status: 'SUCCESS', data: { role: user.role } };
   }
 }
