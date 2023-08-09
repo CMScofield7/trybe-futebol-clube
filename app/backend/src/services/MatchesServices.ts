@@ -12,20 +12,11 @@ export default class MatchesService {
   public async getMatches(): Promise<ServiceResponse<IMatches[]>> {
     const matches = await this._matches.findAll({
       include: [
-        { model: this._teams, as: 'homeTeam' },
-        { model: this._teams, as: 'awayTeam' },
+        { model: this._teams, as: 'homeTeam', attributes: { exclude: ['id'] } },
+        { model: this._teams, as: 'awayTeam', attributes: { exclude: ['id'] } },
       ],
     });
 
     return { status: 'SUCCESS', data: matches };
   }
 }
-
-// attributes: {
-//     exclude: ['homeTeamId', 'awayTeamId'],
-//   },
-
-//   include: [
-//     { model: this._teams, as: 'homeTeam', attributes: { exclude: ['id'] } },
-//     { model: this._teams, as: 'awayTeam', attributes: { exclude: ['id'] } },
-//   ],
