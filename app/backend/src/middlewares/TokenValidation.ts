@@ -13,6 +13,7 @@ export default class TokenValidation {
 
     try {
       const decoded = this.jwt.verify(token);
+      //   console.log(decoded);
       req.body.user = decoded;
 
       next();

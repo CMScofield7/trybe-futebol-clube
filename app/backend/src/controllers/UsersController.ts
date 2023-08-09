@@ -18,6 +18,7 @@ export default class UsersController {
 
   public async getUserByRole(req: Request, res: Response): Promise<Response> {
     const { email } = req.body.user;
+    // console.log(req.body);
     const { status, data } = await this._userService.getUserByRole(email);
 
     if (status !== 'SUCCESS') return res.status(401).send(data);

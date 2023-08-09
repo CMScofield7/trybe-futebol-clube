@@ -35,9 +35,9 @@ const userMock = {
     password: '$2a$08$xi.Hxk1czAO0nZR..B393u10aED0RQ1N3PAEXQ7HxtLjKPEZBu.PW',
 };
 
-const tokenMock = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJBZG1pbiIsInJvbGUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjkwODk5ODcyfQ.gE0_IXxJAPh0ER_GpYWrakSRUGmedODZDso-SpV2whs';
+const tokenMock = 'token';
 
-export default {
+export {
     validEmail,
     validPassword,
     invalidField,

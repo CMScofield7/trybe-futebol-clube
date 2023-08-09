@@ -49,6 +49,7 @@ export default class UserService {
 
   public async getUserByRole(email: string): Promise<ServiceResponse<{ role: string }>> {
     const user = await this.findUserByEmail(email);
+    // console.log(user);
 
     if (!user) return { status: 'UNAUTHORIZED', data: { message: UserService.invalidInfo } };
 
