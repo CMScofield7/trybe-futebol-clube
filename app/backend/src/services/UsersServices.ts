@@ -24,7 +24,8 @@ export default class UserService {
     } : null;
   }
 
-  public async login(email: string, password: string): Promise<ServiceResponse<{ token: string }>> {
+  public async login(email: string, password: string):
+  Promise<ServiceResponse<{ token: string } | { message: string }>> {
     const user = await this.findUserByEmail(email);
     if (!user) return { status: 'UNAUTHORIZED', data: { message: UserService.invalidInfo } };
 
@@ -47,7 +48,8 @@ export default class UserService {
     return { status: 'SUCCESS', data: { token } };
   }
 
-  public async getUserByRole(email: string): Promise<ServiceResponse<{ role: string }>> {
+  public async getUserByRole(email: string):
+  Promise<ServiceResponse<{ role: string } | { message: string }>> {
     const user = await this.findUserByEmail(email);
     // console.log(user);
 

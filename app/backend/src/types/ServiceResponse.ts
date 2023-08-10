@@ -2,7 +2,7 @@ export type ServiceResponseErrorType = 'INVALID_DATA' | 'UNAUTHORIZED' | 'NOT_FO
 
 export type ServiceResponseError<Type> = {
   status: ServiceResponseErrorType,
-  data: Type
+  data: Type,
 };
 
 export type ServiceResponseSuccess<Type> = {
