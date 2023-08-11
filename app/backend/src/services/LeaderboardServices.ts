@@ -53,9 +53,13 @@ export default class LeaderboardSerivce {
     const tiebreaker: (keyof ILeaderboard)[] = ['totalVictories', 'goalsBalance',
       'goalsFavor', 'totalPoints'];
 
-    return this._leaderboard.sort((a, b) => {
-      const sortedTable = tiebreaker.find((key) => a[key] !== b[key]) as keyof ILeaderboard;
-      return +b[sortedTable] - +a[sortedTable];
+    return this._leaderboard.sort((teamA, teamB) => {
+      for (let i = 0; i < tiebreaker.length; i += 1) {
+        if (teamA[tiebreaker[i]] > teamB[tiebreaker[i]]) return -1;
+        if (teamA[tiebreaker[i]] < teamB[tiebreaker[i]]) return 1;
+      }
+
+      return 0;
     });
   }
 
