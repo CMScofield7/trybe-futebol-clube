@@ -11,3 +11,8 @@ export interface IMatchesResponse extends IMatches {
   homeTeam: { teamName: string },
   awayTeam: { teamName: string },
 }
+
+export interface IMatchesScore {
+  homeTeamGoals: number,
+  awayTeamGoals: number,
+}
