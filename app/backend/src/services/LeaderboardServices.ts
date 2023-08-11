@@ -61,8 +61,6 @@ export default class LeaderboardSerivce {
 
   public async homeTeamsTable(): Promise<ServiceResponse<ILeaderboard[]>> {
     this._leaderboard = await this.getLeaderboardHome();
-    console.log(this.orderingTeams());
-    
 
     return { status: 'SUCCESS', data: this.orderingTeams() };
   }
