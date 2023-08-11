@@ -50,13 +50,15 @@ export default class LeaderboardSerivce {
   }
 
   private orderingTeams(): ILeaderboard[] {
-    const tiebreaker: (keyof ILeaderboard)[] = ['totalVictories', 'goalsBalance',
-      'goalsFavor', 'totalPoints'];
+    const tiebreaker: (keyof ILeaderboard)[] = ['totalPoints', 'totalVictories',
+      'goalsBalance', 'goalsFavor'];
 
     return this._leaderboard.sort((teamA, teamB) => {
       for (let i = 0; i < tiebreaker.length; i += 1) {
-        if (teamA[tiebreaker[i]] > teamB[tiebreaker[i]]) return -1;
-        if (teamA[tiebreaker[i]] < teamB[tiebreaker[i]]) return 1;
+        const key = tiebreaker[i];
+
+        if (teamA[key] > teamB[key]) return -1;
+        if (teamA[key] < teamB[key]) return 1;
       }
 
       return 0;
