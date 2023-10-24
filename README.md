@@ -1,10 +1,6 @@
 # Boas vindas ao repositório do Trybe Futebol Clube!
 
-Esse projeto foi realizado ao final do módulo de backend para avaliar o conhecimento dos alunos em Express, Sequelize e Docker!
-
-# Termos e acordos
-
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta e do Manual da Pessoa Estudante da Trybe.
+Esse projeto foi realizado ao final do módulo de backend do curso da Trybe para avaliar o conhecimento dos alunos em Express, Sequelize e Docker!
 
 # O que foi desenvolvido
 
